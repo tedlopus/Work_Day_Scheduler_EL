@@ -28,3 +28,8 @@ $(".saveBtn").on("click", function(){
     console.log(userSave, timeBlock)
     localStorage.setItem(timeBlock,userSave)
 })
+for (let i = 9; i <= 17; i++) {
+    var userPrevEntry = localStorage.getItem(i)
+    $("#" + i).children("textarea").val(userPrevEntry)
+    
+}
