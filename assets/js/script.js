@@ -4,7 +4,7 @@
 var clock = setInterval(function(){
 var today = moment().format('MMMM Do YYYY');
 var todaysTime = moment().format("H A");
-$("#currentDay").text(today + "/n " + todaysTime);
+$("#currentDay").text(today + "      "+ todaysTime);
 },1000)
 //
 
@@ -28,8 +28,15 @@ $(".saveBtn").on("click", function(){
     console.log(userSave, timeBlock)
     localStorage.setItem(timeBlock,userSave)
 })
+var currentHour = moment().hour()
 for (let i = 9; i <= 17; i++) {
     var userPrevEntry = localStorage.getItem(i)
     $("#" + i).children("textarea").val(userPrevEntry)
-    
+    if (i < currentHour) {
+        $("#" + i).addClass("past")
+    } else if (i == currentHour) {
+        $("#" + i).addClass("present")
+    } else {
+        $("#" + i).addClass("future")
+    }
 }
