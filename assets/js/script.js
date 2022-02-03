@@ -26,5 +26,5 @@ $(".saveBtn").on("click", function(){
     var userSave = $(this).siblings("textarea").val()
     var timeBlock = $(this).parent().attr("id")
     console.log(userSave, timeBlock)
-
+    localStorage.setItem(timeBlock,userSave)
 })
